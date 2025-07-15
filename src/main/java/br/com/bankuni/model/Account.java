@@ -6,7 +6,7 @@ public abstract class Account {
     protected double balance;
     protected Client client;
 
-    public Account(String number, double balance, Client client) {
+    public Account(String number, Client client) {
         this.number = number;
         this.balance = balance;
         this.client = client;
