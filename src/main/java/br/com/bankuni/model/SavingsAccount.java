@@ -1,2 +1,17 @@
-package main.java.br.com.bankuni.model;public class SavingsAccount {
+package main.java.br.com.bankuni.model;
+
+public class SavingsAccount extends Account{
+
+    public SavingsAccount(String number, Client client) {
+        super(number, client);
+    }
+
+    @Override
+    public void withdraw(double value) {
+        if (value <= balance){
+            balance += value;
+        }else {
+            throw new IllegalArgumentException("Saldo Insuficiente");
+        }
+    }
 }
