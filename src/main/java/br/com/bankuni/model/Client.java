@@ -4,12 +4,12 @@ public class Client {
 
     private String name;
     private String cpf;
-    private String telefone;
+    private String phone;
 
     public Client(String name, String cpf, String telefone) {
         this.name = name;
         this.cpf = cpf;
-        this.telefone = telefone;
+        this.phone = telefone;
     }
 
     public String getName() {
@@ -28,11 +28,11 @@ public class Client {
         this.cpf = cpf;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

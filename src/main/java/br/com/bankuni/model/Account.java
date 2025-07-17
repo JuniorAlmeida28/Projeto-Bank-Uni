@@ -8,7 +8,6 @@ public abstract class Account {
 
     public Account(String number, Client client) {
         this.number = number;
-        this.balance = balance;
         this.client = client;
     }
 
@@ -21,5 +20,13 @@ public abstract class Account {
     public void transfer(double value, Account account){
         this.withdraw(value);
         account.deposit(value);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getNumber() {
+        return number;
     }
 }

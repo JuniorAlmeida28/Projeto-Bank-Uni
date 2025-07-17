@@ -9,9 +9,10 @@ public class SavingsAccount extends Account{
     @Override
     public void withdraw(double value) {
         if (value <= balance){
-            balance += value;
+            balance -= value;
         }else {
-            throw new IllegalArgumentException("Saldo Insuficiente");
+            System.out.println("Saldo Insuficiente");
+            return;
         }
     }
 }
