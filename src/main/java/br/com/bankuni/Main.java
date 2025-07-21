@@ -19,8 +19,13 @@ public class Main {
         Client c1 = new Client("Junior", "55", "12");
         Account ac1 = new CheckingAccount("123", c1);
 
+        Client c2 = new Client("Bruno", "55", "13");
+        Account ac2 = new CheckingAccount("1234", c2);
+
         serviceClient.newClient(c1);
         bank.newAccount(ac1);
+        serviceClient.newClient(c2);
+        bank.newAccount(ac2);
 
         bank.deposit("123", 55);
         bank.consultBalance("123");
@@ -101,6 +106,7 @@ public class Main {
                     System.out.print("Digite o valor a ser transferido: ");
                     value = en.nextDouble();
                     bank.transfer(origin, destination, value);
+                    System.out.println("Transferencia realizado com sucesso!");
                     System.out.println("===================================");
                     break;
                 case 5:
@@ -111,7 +117,7 @@ public class Main {
                     System.out.println("==============================");
                     break;
                 case 6:
-                    op = 5;
+                    op = 6;
                     break;
             }
         }
