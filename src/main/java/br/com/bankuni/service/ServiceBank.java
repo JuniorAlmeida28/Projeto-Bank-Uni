@@ -37,7 +37,7 @@ public class ServiceBank {
         if (account.getNumber() == null){
             throw new IllegalArgumentException("Conta não encontrada");
         }
-        System.out.println("Saldo: " + account.getBalance());
+        System.out.println("Saldo: " + String.format("%.2f", account.getBalance()));
     }
 
     public void withdraw(String number, double value){

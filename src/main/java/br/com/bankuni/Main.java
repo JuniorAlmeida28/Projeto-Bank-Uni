@@ -13,17 +13,22 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner en = new Scanner(System.in);
-        ServiceBank bank = new ServiceBank();
+        ServiceBank bankService = new ServiceBank();
         ServiceClient serviceClient = new ServiceClient();
 
         Client c1 = new Client("Junior", "55", "12");
         Account ac1 = new CheckingAccount("123", c1);
 
-        serviceClient.newClient(c1);
-        bank.newAccount(ac1);
+        Client c2 = new Client("Bruno", "55", "13");
+        Account ac2 = new CheckingAccount("1234", c2);
 
-        bank.deposit("123", 55);
-        bank.consultBalance("123");
+        serviceClient.newClient(c1);
+        bankService.newAccount(ac1);
+        serviceClient.newClient(c2);
+        bankService.newAccount(ac2);
+
+        bankService.deposit("123", 55);
+        bankService.consultBalance("123");
 
         int op = 0;
         while (op < 6){
@@ -67,7 +72,7 @@ public class Main {
                         System.out.println("Opção inválida");
                         return;
                     }
-                    bank.newAccount(account);
+                    bankService.newAccount(account);
                     serviceClient.newClient(client);
                     System.out.println("Conta criada com sucesso!");
                     System.out.println("=================================");
@@ -78,7 +83,7 @@ public class Main {
                     number = en.next();
                     System.out.print("Digite o valor do depositar: ");
                     double value = en.nextDouble();
-                    bank.deposit(number, value);
+                    bankService.deposit(number, value);
                     System.out.println("Deposito realizado com sucesso!");
                     System.out.println("==============================");
                     break;
@@ -88,7 +93,7 @@ public class Main {
                     number = en.next();
                     System.out.print("Informe o valor de saque: ");
                     value = en.nextDouble();
-                    bank.withdraw(number, value);
+                    bankService.withdraw(number, value);
                     System.out.println("Saque realizado com sucesso!");
                     System.out.println("==============================");
                     break;
@@ -100,18 +105,19 @@ public class Main {
                     String destination = en.next();
                     System.out.print("Digite o valor a ser transferido: ");
                     value = en.nextDouble();
-                    bank.transfer(origin, destination, value);
+                    bankService.transfer(origin, destination, value);
+                    System.out.println("Transferencia realizado com sucesso!");
                     System.out.println("===================================");
                     break;
                 case 5:
                     System.out.println("========== Saldo =============");
                     System.out.print("Informe o Número da conta: ");
                     number = en.next();
-                    bank.consultBalance(number);
+                    bankService.consultBalance(number);
                     System.out.println("==============================");
                     break;
                 case 6:
-                    op = 5;
+                    op = 6;
                     break;
             }
         }
